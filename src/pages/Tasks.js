@@ -20,7 +20,7 @@ const Tasks = () => {
 
   const getTasks = () => {
     axios
-      .get("https://taskaway-backend.onrender.com/ta/tasks")
+      .get("http://taskaway-backend.onrender.com/ta/tasks")
       .then((response) => {
         setTasks(response.data);
       });
@@ -28,7 +28,7 @@ const Tasks = () => {
 
   const handleCreate = (data) => {
     axios
-      .post(`https://taskaway-backend.onrender.com/ta/tasks`, data)
+      .post(`http://taskaway-backend.onrender.com/ta/tasks`, data)
       .then((response) => {
         setTasks([...tasks, response.data]);
       });
@@ -36,7 +36,7 @@ const Tasks = () => {
 
   const handleDelete = (id) => {
     axios
-      .delete(`https://taskaway-backend.onrender.com/ta/tasks/${id}`)
+      .delete(`http://taskaway-backend.onrender.com/ta/tasks/${id}`)
       .then((response) => {
         setTasks(
           tasks.filter((task) => {
@@ -50,7 +50,7 @@ const Tasks = () => {
     console.log(data);
     document.getElementById(`${data._id + 1}`).classList.remove("hidden");
     axios
-      .put(`https://taskaway-backend.onrender.com/ta/tasks/${data._id}`, data)
+      .put(`http://taskaway-backend.onrender.com/ta/tasks/${data._id}`, data)
       .then((response) => {
         setTasks(
           tasks.map((task) => {
@@ -62,7 +62,7 @@ const Tasks = () => {
 
   const handleShowTask = (data) => {
     axios
-      .get(`https://taskaway-backend.onrender.com/ta/tasks/${data._id}`)
+      .get(`http://taskaway-backend.onrender.com/ta/tasks/${data._id}`)
       .then((response) => {
         setShowTask(response.data);
       });
